@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@clerk/remix": "^4.0.0-beta.22",
+    "@clerk/shared": "2.0.0-beta.13",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@remix-run/cloudflare": "^2.7.1",
     "@remix-run/cloudflare-pages": "^2.7.1",
