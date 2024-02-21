@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "postinstall": "bun run typegen",
+    "dev": "remix vite:dev",
+    "build": "remix vite:build",
+    "start": "wrangler pages dev ./build/client",
+    "deploy": "wrangler pages deploy ./build/client",
+    "typecheck": "tsc",
+    "typegen": "wrangler types"
+  },
+  "dependencies": {
+    "@clerk/remix": "^4.0.0-beta.22",
+    "@fontsource-variable/montserrat": "^5.0.17",
+    "@remix-run/cloudflare": "^2.7.1",
+    "@remix-run/cloudflare-pages": "^2.7.1",
+    "@remix-run/react": "^2.7.1",
+    "@remix-run/serve": "^2.7.1",
+    "class-variance-authority": "^0.7.0",
+    "isbot": "^5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "wrangler": "^3.28.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "@remix-run/dev": "^2.7.1",
+    "@types/react": "^18.2.57",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.4.17",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4",
+    "vite-tsconfig-paths": "^4.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

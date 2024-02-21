@@ -1,0 +1,23 @@
+@import "@fontsource-variable/montserrat";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --body-foreground: #053361;
+
+    --link-default: var(--body-foreground);
+    --link-highlight: #4a4bd7;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-foreground: theme(colors.gray.200);
+
+      --link-default: #fff;
+      --link-highlight: #ccc;
+    }
+  }
+}
