@@ -1,6 +1,6 @@
 import { ClerkApp } from "@clerk/remix";
 import { rootAuthLoader } from "@clerk/remix/ssr.server";
-import type { LoaderFunction } from "@remix-run/cloudflare";
+import type { LoaderFunction, LinksFunction } from "@remix-run/cloudflare";
 import {
 	Links,
 	Meta,
@@ -8,12 +8,11 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from "@remix-run/react";
-// import stylesheet from "~/style.css";
+import stylesheet from "~/style.css";
 
-// export const links: LinksFunction = () => [
-//   { rel: "stylesheet", href: stylesheet },
-// ];
-// Fixed in 2.7.2
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: stylesheet },
+];
 
 export const loader: LoaderFunction = (args) => rootAuthLoader(args);
 

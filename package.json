@@ -12,13 +12,12 @@
     "typegen": "wrangler types"
   },
   "dependencies": {
-    "@clerk/remix": "^4.0.0-beta.22",
-    "@clerk/shared": "2.0.0-beta.13",
+    "@clerk/remix": "^4.0.0-alpha-v5.18",
     "@fontsource-variable/montserrat": "^5.0.17",
-    "@remix-run/cloudflare": "^2.7.1",
-    "@remix-run/cloudflare-pages": "^2.7.1",
-    "@remix-run/react": "^2.7.1",
-    "@remix-run/serve": "^2.7.1",
+    "@remix-run/cloudflare": "^2.7.2",
+    "@remix-run/cloudflare-pages": "^2.7.2",
+    "@remix-run/react": "^2.7.2",
+    "@remix-run/serve": "^2.7.2",
     "class-variance-authority": "^0.7.0",
     "isbot": "^5",
     "react": "^18.2.0",
@@ -28,7 +27,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@cloudflare/workers-types": "^4.20240208.0",
-    "@remix-run/dev": "^2.7.1",
+    "@remix-run/dev": "^2.7.2",
     "@types/react": "^18.2.57",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",

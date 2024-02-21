@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 export async function loader({ request, context, params }: LoaderFunctionArgs) {
   const { userId } = await getAuth({ request, context, params });
   const { users } = createClerkClient({
-    secretKey: context.cloudflare.env.CLERK_SECRET_KEY,
+    secretKey: context.env.CLERK_SECRET_KEY,
   });
   const user = userId ? await users.getUser(userId) : null;
   return { user };
@@ -23,8 +23,8 @@ export default function IndexRoute() {
   const { user } = useLoaderData<typeof loader>();
 
   if (!user) {
-    return console.log("Logged Out");
+    return ("Logged Out");
   }
 
-  return console.log("Logged In");
+  return ("Logged Out");
 }
