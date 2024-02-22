@@ -1,6 +1,6 @@
 import { ClerkApp } from "@clerk/remix";
 import { rootAuthLoader } from "@clerk/remix/ssr.server";
-import type { LoaderFunction, LinksFunction } from "@remix-run/cloudflare";
+import type { LoaderFunctionArgs, LinksFunction } from "@remix-run/cloudflare";
 import {
 	Links,
 	Meta,
@@ -9,12 +9,15 @@ import {
 	ScrollRestoration,
 } from "@remix-run/react";
 import stylesheet from "~/style.css?url";
+import { clerkEnv } from "./env.server";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
 
-export const loader: LoaderFunction = (args) => rootAuthLoader(args);
+export const loader = (args: LoaderFunctionArgs) => {
+    return rootAuthLoader(args, clerkEnv);
+};
 
 function App() {
 	return (

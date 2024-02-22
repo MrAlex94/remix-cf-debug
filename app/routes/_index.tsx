@@ -2,6 +2,7 @@ import { createClerkClient } from "@clerk/remix/api.server";
 import { getAuth } from "@clerk/remix/ssr.server";
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
+import { clerkEnv } from "~/env.server";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,7 +12,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ request, context, params }: LoaderFunctionArgs) {
-  const { userId } = await getAuth({ request, context, params });
+  const { userId } = await getAuth({ request, context, params }, clerkEnv);
   const { users } = createClerkClient({
     secretKey: context.env.CLERK_SECRET_KEY,
   });
