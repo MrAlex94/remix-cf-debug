@@ -1,4 +1,5 @@
-import type { GetLoadContextFunction } from "@remix-run/cloudflare-pages";
+import type { AppLoadContext } from "@remix-run/cloudflare";
+import type { PlatformProxy } from "wrangler";
 import { z } from "zod";
 
 declare module "@remix-run/cloudflare" {
@@ -15,7 +16,16 @@ const schema = z.object({
 	CLERK_SECRET_KEY: z.string(),
 });
 
-export const getLoadContext: GetLoadContextFunction = ({ context }) => {
+interface CloudflareLoadContext {
+	context: {
+		cloudflare: Omit<PlatformProxy<unknown>, "dispose">;
+	};
+	request: Request;
+}
+
+export function getLoadContext({
+	context,
+}: CloudflareLoadContext): AppLoadContext {
 	const { CLERK_PUBLISHABLE_KEY, CLERK_SECRET_KEY } = schema.parse(
 		context.cloudflare.env,
 	);
@@ -23,4 +33,4 @@ export const getLoadContext: GetLoadContextFunction = ({ context }) => {
 	return {
 		env: { CLERK_PUBLISHABLE_KEY, CLERK_SECRET_KEY },
 	};
-};
+}
