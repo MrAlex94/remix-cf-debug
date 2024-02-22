@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "remix vite:dev",
     "build": "remix vite:build",
-    "start": "wrangler pages dev ./build/client",
+    "start": "wrangler pages dev ./build/client --compatibility-flags='nodejs_compat'",
     "deploy": "wrangler pages deploy ./build/client",
     "typecheck": "tsc",
     "typegen": "wrangler types"
